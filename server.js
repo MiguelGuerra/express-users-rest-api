@@ -6,6 +6,7 @@ const { MONGO_URI } = require('./config');
 //routes
 const usersRoutes = require('./Routes/api/users');
 const departmentsRoutes = require('./Routes/api/departments');
+const dashboardRoutes = require('./Routes/api/dashboard');
 
 const app = express();
 
@@ -35,8 +36,12 @@ mongoose.connect(MONGO_URI, {
 //use routes
 //users database
 app.use('/api/users', usersRoutes);
+
 //departments database
 app.use('/api/departments', departmentsRoutes);
+
+//dashboard database
+app.use('/api/dashboard', dashboardRoutes);
 
 const PORT = process.env.PORT || 5000;
 
