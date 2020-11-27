@@ -7,6 +7,7 @@ const { MONGO_URI } = require('./config');
 const usersRoutes = require('./Routes/api/users');
 const departmentsRoutes = require('./Routes/api/departments');
 const dashboardRoutes = require('./Routes/api/dashboard');
+const authRoutes = require('./Routes/auth/auth');
 
 const app = express();
 
@@ -42,6 +43,9 @@ app.use('/api/departments', departmentsRoutes);
 
 //dashboard database
 app.use('/api/dashboard', dashboardRoutes);
+
+//authenticate user
+app.use('/api/register', authRoutes);
 
 const PORT = process.env.PORT || 5000;
 
