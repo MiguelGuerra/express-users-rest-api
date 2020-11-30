@@ -10,7 +10,6 @@ const register = (req, res, next) => {
                 error: err
             })
         }
-        
         let accountUser = new AccountUser({
             email: req.body.email,
             password: hashedPass,
@@ -19,12 +18,14 @@ const register = (req, res, next) => {
         accountUser.save()
         .then(user => {
             res.json({
-                message: 'User Added Successfully!'
+                message: 'User Added Successfully!',
+                success: true
             })
         })
         .catch(err => {
             res.json({
-                message: 'An error occured!'
+                message: 'An error occured!',
+                success: false
             })
         })
     })
