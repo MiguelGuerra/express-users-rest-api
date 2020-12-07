@@ -72,7 +72,14 @@ const login = (req, res, next) => {
     })
 }
 
+
+//for the login user
+const logout = (req, res, next) => {
+    
+}
+
 module.exports = {
     register,
-    login
+    login,
+    logout
 }
